@@ -25,7 +25,7 @@ def get_author2films(file_name):
 
 
 def get_films_of(author2films, author):
-    return author2films.get(author) if author in author2films else None
+    return author2films.get(author)
 
 
 if __name__ == '__main__':
