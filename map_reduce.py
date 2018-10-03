@@ -27,7 +27,8 @@ with open('cities.json', 'r') as f:
     #         map(lambda reviews: reduce(lambda x, y: (x + y) / 2, reviews),
     #             list(map(
     #                 lambda city_reviews:
-    #                     list(map(lambda reviews: len(reviews), city_reviews)),
+    #                     list(map(lambda reviews: len(reviews),
+    #                       city_reviews)),
     #                     map(lambda city: list(map(lambda bar: bar['reviews'],
     #                         city['bars'])), data))))))
 
