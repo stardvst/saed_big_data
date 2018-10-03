@@ -13,7 +13,7 @@ with open('cities.json', 'r') as f:
             all_reviews)
 
     average_in_cities = map(
-        lambda reviews: reduce(lambda x, y: (x + y) / 2, reviews),
+        lambda reviews: reduce(lambda r1, r2: (r1 + r2) / 2, reviews),
         list(reviews_per_city))
 
     average_more_than_9 = filter(lambda avg: avg > 9, average_in_cities)
