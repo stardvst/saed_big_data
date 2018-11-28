@@ -6,7 +6,6 @@ def shortest_apth(word_1, word_2, words):
     if len(word_1) != len(word_2) or not words:
         return None
 
-    visited = set()
     cur_layer = [word_1]
     depth = 0
 
@@ -29,8 +28,7 @@ def shortest_apth(word_1, word_2, words):
                 print('None')
                 return depth
 
-            visited.add(word)
-            diff = words[word] - visited
+            diff = words[word] - set(parent_dict.keys())
             for child in diff:
                 parent_dict[child] = word
                 # next_layer.extend(w for w in words[w] if w not in visited)
@@ -41,13 +39,12 @@ def shortest_apth(word_1, word_2, words):
     return None
 
 
-GRAPH = {"put": set(["cut", "but"]),
+GRAPH = {"put": set(["cut", "but", "pug"]),
          "but": set(["cut", "put", "bug"]),
          "cut": set(["but", "cat", "put"]),
          "cat": set(["cut"]),
          "bug": set(["but", "big"]),
-         "big": set(["bug"])}
+         "big": set(["bug", "pig"]),
+         "pug": set(["put", "pig"]),
+         "pig": set(["pug", "big"])}
 print(shortest_apth('cat', 'big', GRAPH))
-
-
-# print path, find all sp, merge visited and parent_dict, networkx
